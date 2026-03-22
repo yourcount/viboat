@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/packages",
+      "dest": "/api/packages.js"
+    },
+    {
+      "src": "/api/availability",
+      "dest": "/api/availability.js"
+    },
+    {
+      "src": "/api/booking",
+      "dest": "/api/booking.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

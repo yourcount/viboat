@@ -265,11 +265,268 @@
   #booking-form-inner.hidden {
     display: none;
   }
+  .hero-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .hero-proof-card {
+    border-radius: 1.5rem;
+    background: rgba(255, 248, 244, 0.78);
+    border: 1px solid rgba(57, 47, 35, 0.08);
+    padding: 0.9rem 1rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .hero-proof-card strong {
+    display: block;
+    font-family: 'Shrikhand', serif;
+    font-size: 1.45rem;
+    line-height: 1;
+    color: #392f23;
+    margin-bottom: 0.25rem;
+  }
+  .hero-proof-card span {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(35, 26, 16, 0.68);
+  }
+  .hero-intro {
+    max-width: 34rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(35, 26, 16, 0.82);
+  }
+  .calc-summary {
+    gap: 1.5rem;
+  }
+  .booking-hint {
+    border-radius: 1.5rem;
+    padding: 0.9rem 1rem;
+    background: rgba(245, 155, 124, 0.1);
+    color: #5c4a35;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    font-weight: 700;
+  }
+  .bottom-booking-bar button {
+    background: linear-gradient(135deg, #924a31 0%, #F59B7C 100%);
+    color: #fff8f4;
+    box-shadow: 0 12px 28px rgba(146, 74, 49, 0.24);
+  }
 
   @media (max-width: 640px) {
     #modal-content {
       padding: 1.75rem;
       border-radius: 2rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+    }
+    header {
+      padding-top: 1.25rem !important;
+      padding-bottom: 1rem !important;
+    }
+    header .max-w-7xl {
+      gap: 1rem;
+    }
+    #main-content {
+      min-height: 100dvh;
+      padding-top: 5.5rem;
+      padding-bottom: 4rem;
+      align-items: flex-start;
+    }
+    #main-content .container {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+    #main-content .grid {
+      gap: 1.5rem;
+    }
+    #main-content h1 {
+      font-size: 3.4rem;
+    }
+    .hero-intro {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .hero-proof-grid {
+      grid-template-columns: 1fr;
+      gap: 0.65rem;
+    }
+    .hero-proof-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .hero-proof-card strong {
+      margin-bottom: 0;
+      font-size: 1.3rem;
+      white-space: nowrap;
+    }
+    .hero-proof-card span {
+      text-align: right;
+      line-height: 1.3;
+    }
+    .collage-item:nth-of-type(2),
+    .collage-item:nth-of-type(3),
+    #main-content .absolute.-top-10.right-10,
+    #main-content .absolute.top-1\/2.left-1\/4 {
+      display: none;
+    }
+    #main-content .order-1 {
+      height: auto;
+      min-height: 0;
+      margin-bottom: 0.5rem;
+    }
+    #main-content .collage-item:first-of-type {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: 100%;
+      height: 17rem;
+      border-width: 6px;
+      transform: rotate(0deg);
+      border-radius: 2rem;
+    }
+    #ervaring {
+      padding-top: 5rem;
+      padding-bottom: 5.5rem;
+    }
+    #ervaring .space-y-20 > article + article {
+      margin-top: 1.5rem;
+    }
+    #ervaring article {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    #ervaring article > div {
+      padding: 1.5rem;
+      border-radius: 2rem;
+      box-shadow: 10px 10px 0 0 rgba(245, 155, 124, 0.7);
+    }
+    #ervaring article .h-64 {
+      height: 12rem;
+      transform: none !important;
+      order: -1;
+    }
+    #ervaring article h3 {
+      font-size: 2.2rem;
+    }
+    #ervaring article button {
+      width: 100%;
+    }
+    #calculator {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+    #calculator .bg-surface.rounded-\[2\.5rem\] {
+      padding: 1.25rem;
+      border-radius: 2rem;
+    }
+    .calc-option {
+      min-height: 4.5rem;
+      flex-direction: row;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 1rem 1.1rem;
+      gap: 0.9rem;
+    }
+    .calc-option span:last-child {
+      margin-left: auto;
+    }
+    .calc-summary {
+      flex-direction: column;
+      align-items: stretch;
+      border-radius: 1.5rem;
+    }
+    .calc-summary button {
+      width: 100%;
+    }
+    .insta-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      overflow-x: auto;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 0.5rem 0 1rem;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+    .insta-strip::-webkit-scrollbar {
+      display: none;
+    }
+    .insta-strip .polaroid {
+      width: auto;
+      height: auto;
+      min-height: 17rem;
+      scroll-snap-align: start;
+      transform: rotate(0deg) !important;
+    }
+    .insta-strip .polaroid img {
+      height: 12rem;
+    }
+    .bottom-booking-bar {
+      bottom: max(0.9rem, env(safe-area-inset-bottom));
+      width: calc(100% - 1.25rem);
+      max-width: none;
+      padding: 0.55rem;
+      gap: 0.45rem;
+      border-radius: 1.6rem;
+      justify-content: space-between;
+    }
+    .bottom-booking-bar a,
+    .bottom-booking-bar button {
+      flex: 1 1 0;
+      min-height: 3.5rem;
+      border-radius: 1.2rem;
+      padding: 0.75rem 0.6rem;
+    }
+    .bottom-booking-bar button {
+      flex: 1.3 1 0;
+    }
+    .bottom-booking-bar .material-symbols-outlined {
+      font-size: 1.35rem;
+    }
+    .bottom-booking-bar span:last-child {
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+    }
+    #booking-modal {
+      align-items: flex-end;
+      padding: 0;
+    }
+    #modal-content {
+      width: 100%;
+      max-width: none;
+      max-height: min(92dvh, 92svh);
+      border-radius: 1.75rem 1.75rem 0 0;
+      padding: 1.15rem 1rem calc(1rem + env(safe-area-inset-bottom));
+      overflow-y: auto;
+    }
+    #modal-content::before {
+      content: "";
+      display: block;
+      width: 3.25rem;
+      height: 0.3rem;
+      border-radius: 999px;
+      background: rgba(57, 47, 35, 0.18);
+      margin: 0 auto 1rem;
+    }
+    #submit-btn {
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+      box-shadow: 0 -6px 24px rgba(255, 248, 244, 0.9), 0 14px 30px rgba(146, 74, 49, 0.22);
     }
   }
 
@@ -303,7 +560,7 @@
       class="btn-gradient text-surface px-7 py-3 rounded-full font-display text-sm hover:scale-105 transition-transform shadow-lg tracking-wider"
       onclick="openModal()"
       aria-label="Reservering maken"
-    >SAY YES!</button>
+    >CHECK DATUM</button>
   </div>
 </header>
 
@@ -325,6 +582,9 @@
             <span class="text-outline">BOAT TRIP</span>
           </h1>
         </div>
+        <p class="hero-intro mb-6 font-semibold">
+          Privé bootfeest in Utrecht voor vrijgezellen, vriendinnengroepen en golden-hour crews. Snel duidelijk, snel geboekt, zonder eindeloos heen-en-weer appen.
+        </p>
         <div class="flex flex-wrap gap-3 mb-10">
           <div class="flex items-center gap-2 bg-surface-high px-4 py-2.5 rounded-full shadow-sm">
             <span class="material-symbols-outlined text-vibrant-peach" style="font-size:18px;font-variation-settings:'FILL' 1">celebration</span>
@@ -348,7 +608,21 @@
             class="btn-gradient text-surface text-lg md:text-xl px-10 py-5 rounded-full font-display hover:rotate-2 hover:scale-105 transition-all shadow-2xl tracking-wide"
             onclick="openModal()"
             aria-label="Boek nu een boat trip"
-          >BOEK DE VIBE!</button>
+          >CHECK BESCHIKBAARHEID</button>
+        </div>
+        <div class="hero-proof-grid mt-6">
+          <div class="hero-proof-card">
+            <strong>&lt;24u</strong>
+            <span>Reactietijd op aanvragen</span>
+          </div>
+          <div class="hero-proof-card">
+            <strong>€45+</strong>
+            <span>Vanafprijs per persoon</span>
+          </div>
+          <div class="hero-proof-card">
+            <strong>Privé</strong>
+            <span>Schipper en boot alleen voor jullie</span>
+          </div>
         </div>
       </div>
 
@@ -543,7 +817,7 @@
       <!-- Pakket keuze -->
       <fieldset class="mb-8">
         <legend class="font-display text-2xl mb-4 block" style="color:#3c3024">Pakket</legend>
-        <div class="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Kies een pakket">
+        <div class="grid md:grid-cols-3 gap-3" role="radiogroup" aria-label="Kies een pakket">
           <label class="calc-option selected flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bridal" aria-pressed="true">
             <input type="radio" name="calc-package" value="bridal-vip" class="sr-only" checked onchange="updateCalc()" aria-label="Bridal VIP €69 per persoon"/>
             <span class="material-symbols-outlined text-vibrant-peach" style="font-size:22px;font-variation-settings:'FILL' 1">diamond</span>
@@ -592,7 +866,7 @@
       </div>
 
       <!-- Totaal -->
-      <div class="bg-surface-high rounded-[2rem] p-6 flex items-center justify-between">
+      <div class="calc-summary bg-surface-high rounded-[2rem] p-6 flex items-center justify-between">
         <div>
           <p class="font-extrabold uppercase tracking-widest text-xs text-on-surface mb-1" style="color:#3c3024">Totale prijs</p>
           <p id="calc-total" class="font-display text-5xl md:text-6xl text-peach-dark" aria-live="polite" aria-atomic="true">€552</p>
@@ -623,7 +897,7 @@
       <p class="font-extrabold uppercase tracking-[0.3em] text-peach-dark text-sm md:text-base">TAG @VIBEBOATS VOOR EEUWIGE ROEM</p>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-8 lg:gap-14 py-10">
+    <div class="insta-strip flex flex-wrap justify-center gap-8 lg:gap-14 py-10">
       <figure class="polaroid bg-white p-4 pb-10 rotate-[-5deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
         <img
           alt="Feest op de boot - #CHEERS"
@@ -673,7 +947,7 @@
     <div class="bg-vibrant-peach rounded-[4rem] p-10 md:p-24 relative overflow-hidden flex flex-col items-center text-center anim-fade-up">
       <div class="absolute inset-0 bg-groovy-waves opacity-25 rotate-180" aria-hidden="true"></div>
       <div class="relative z-10 w-full">
-        <h2 class="font-display text-5xl md:text-[7rem] text-surface mb-16 leading-[0.9]">WAAR WACHT<br class="hidden md:block"/> JE NOG OP?!</h2>
+        <h2 class="font-display text-5xl md:text-[7rem] text-surface mb-16 leading-[0.9]">KLAAR VOOR<br class="hidden md:block"/> JULLIE DATUM?</h2>
 
         <div class="grid sm:grid-cols-3 gap-10 mb-20">
           <div class="flex flex-col items-center gap-4 anim-fade-up" data-delay="0">
@@ -694,7 +968,7 @@
           class="bg-dark-accent text-surface text-3xl md:text-4xl px-12 md:px-16 py-7 md:py-8 rounded-full font-display hover:scale-105 transition-transform shadow-2xl rotate-2 tracking-wide"
           onclick="openModal()"
           aria-label="Boek de vibe nu"
-        >BOEK DE VIBE NU!</button>
+        >VRAAG JE DATUM AAN</button>
       </div>
     </div>
   </div>
@@ -752,24 +1026,24 @@
 
 <!-- ========== STICKY BOTTOM NAV ========== -->
 <nav
-  class="fixed bottom-5 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-[100] glass-nav rounded-full shadow-2xl px-2 py-3 flex justify-around items-center"
+  class="bottom-booking-bar fixed bottom-5 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-[100] glass-nav rounded-full shadow-2xl px-2 py-3 flex justify-around items-center"
   aria-label="Snelnavigatie"
 >
-  <a class="flex flex-col items-center gap-1 px-3 py-2 text-peach-dark group" href="#vloot" aria-label="Navigeer naar vloot sectie">
-    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">directions_boat</span>
-    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Vloot</span>
-  </a>
-  <a class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group" href="#ervaring" aria-label="Navigeer naar pakketten">
+  <a class="flex flex-col items-center gap-1 px-3 py-2 text-peach-dark group" href="#ervaring" aria-label="Navigeer naar pakketten">
     <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">auto_awesome</span>
-    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Ervaring</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Pakketten</span>
   </a>
-  <button class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group bg-transparent border-0 cursor-pointer" aria-label="Open boekingsformulier" onclick="openModal()">
+  <a class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group" href="#calculator" aria-label="Navigeer naar prijs calculator">
+    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">payments</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Prijs</span>
+  </a>
+  <button class="flex flex-col items-center gap-1 px-3 py-2 transition-colors group bg-transparent border-0 cursor-pointer" aria-label="Open boekingsformulier" onclick="openModal()">
     <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">calendar_month</span>
-    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Boek Nu</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Check Datum</span>
   </button>
-  <a class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group" href="#contact" aria-label="Navigeer naar contact">
-    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">chat</span>
-    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Contact</span>
+  <a class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group" href="tel:+31612345678" aria-label="Bel direct">
+    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">call</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Bel</span>
   </a>
 </nav>
 
@@ -788,7 +1062,7 @@
     <div class="flex justify-between items-start mb-8">
       <div>
         <h2 id="modal-title" class="font-display text-4xl text-peach-dark">BOEK JE TRIP!</h2>
-        <p id="modal-desc" class="font-bold uppercase tracking-widest text-xs opacity-70 mt-1">We nemen snel contact op</p>
+        <p id="modal-desc" class="font-bold uppercase tracking-widest text-xs opacity-70 mt-1">Binnen 24 uur reactie • je zit nergens direct aan vast</p>
       </div>
       <button
         onclick="closeModal()"
@@ -803,6 +1077,7 @@
     <div id="booking-form-inner">
       <form id="booking-form" onsubmit="handleSubmit(event)" novalidate>
         <div class="space-y-5">
+          <p class="booking-hint">Vul alleen de basis in. We checken beschikbaarheid en nemen daarna contact op om details af te stemmen.</p>
 
           <!-- Naam -->
           <div>
@@ -1109,7 +1384,14 @@ function showError(id, inputId) {
   }
 }
 
-function handleSubmit(e) {
+function showGenericSubmitError(message) {
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = false;
+  btn.textContent = 'VERSTUUR AANVRAAG!';
+  window.alert(message);
+}
+
+async function handleSubmit(e) {
   e.preventDefault();
   clearErrors();
 
@@ -1118,6 +1400,8 @@ function handleSubmit(e) {
   const email = document.getElementById('field-email').value.trim();
   const date = document.getElementById('field-date').value;
   const pkg = document.getElementById('field-package').value;
+  const persons = document.getElementById('field-persons').value;
+  const notes = document.getElementById('field-notes').value.trim();
   const privacy = document.getElementById('field-privacy').checked;
 
   if (!name) { showError('err-name', 'field-name'); valid = false; }
@@ -1147,10 +1431,40 @@ function handleSubmit(e) {
   btn.textContent = 'VERSTUREN...';
   btn.disabled = true;
 
-  setTimeout(() => {
+  try {
+    const response = await fetch('/api/booking', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        date,
+        package: pkg,
+        persons,
+        notes
+      })
+    });
+
+    const payload = await response.json();
+
+    if (!response.ok) {
+      if (Array.isArray(payload.errors)) {
+        showGenericSubmitError(payload.errors.join('\n'));
+        return;
+      }
+
+      showGenericSubmitError(payload.error || 'Er ging iets mis bij het versturen van je aanvraag.');
+      return;
+    }
+
     document.getElementById('booking-form-inner').classList.add('hidden');
     document.getElementById('form-success').classList.add('show');
-  }, 1000);
+    btn.textContent = 'VERZONDEN';
+  } catch (error) {
+    showGenericSubmitError('De aanvraag kon niet worden verstuurd. Probeer het opnieuw.');
+  }
 }
 
 // ── Init calculator ──────────────────────────────────────────────────────

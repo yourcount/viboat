@@ -1,3 +1,5 @@
 node_modules/
 bookings.json
 .DS_Store
+.playwright-cli/
+output/playwright/
