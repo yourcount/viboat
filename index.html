@@ -320,8 +320,79 @@
   .hero-mobile-photo {
     display: none;
   }
+  .hero-photo-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 2;
+    display: inline-block;
+    rotate: 3deg;
+    box-shadow: 0 12px 24px rgba(146, 74, 49, 0.22);
+  }
   .hero-mobile-badge {
     display: none;
+  }
+  .insta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .insta-card {
+    position: relative;
+  }
+  .insta-like {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.6rem 0.9rem;
+    background: rgba(255, 248, 244, 0.92);
+    color: #5c4a35;
+    box-shadow: 0 10px 24px rgba(57, 47, 35, 0.16);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .insta-like:hover {
+    transform: translateY(-1px) scale(1.02);
+  }
+  .insta-like.liked {
+    background: #924a31;
+    color: #fff8f4;
+  }
+  .insta-like .material-symbols-outlined {
+    font-size: 1.15rem;
+    transition: transform 0.2s ease;
+  }
+  .insta-like.liked .material-symbols-outlined {
+    transform: scale(1.18);
+    font-variation-settings: 'FILL' 1;
+  }
+  .insta-like-count {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    header {
+      padding-top: 2.75rem !important;
+      padding-bottom: 2.4rem !important;
+      background: linear-gradient(180deg, rgba(255, 248, 244, 0.98) 0%, rgba(255, 248, 244, 0.92) 72%, rgba(255, 248, 244, 0) 100%);
+    }
+    #main-content {
+      padding-top: 9.5rem;
+    }
+    #main-content .mb-8 {
+      margin-bottom: 0.45rem;
+    }
+    .hero-intro {
+      margin-top: -0.15rem;
+    }
   }
 
   @media (max-width: 640px) {
@@ -337,7 +408,7 @@
     }
     header {
       padding-top: 1rem !important;
-      padding-bottom: 0.75rem !important;
+      padding-bottom: 0.35rem !important;
     }
     header .max-w-7xl {
       align-items: flex-start;
@@ -362,7 +433,7 @@
     }
     #main-content {
       min-height: 100dvh;
-      padding-top: 7.5rem;
+      padding-top: 7.1rem;
       padding-bottom: 4rem;
       align-items: flex-start;
     }
@@ -383,9 +454,6 @@
       font-size: 3rem;
       line-height: 0.94;
       margin-bottom: 0;
-    }
-    #main-content > span + div + div .z-20 > .mb-6:first-child {
-      display: none;
     }
     #main-content .mb-8 {
       margin-bottom: 1.1rem;
@@ -432,12 +500,8 @@
     }
     .hero-mobile-badge {
       display: inline-block;
-      position: absolute;
       top: 0.85rem;
-      left: 0.85rem;
-      z-index: 2;
-      rotate: -3deg;
-      box-shadow: 0 12px 24px rgba(146, 74, 49, 0.22);
+      right: 0.85rem;
     }
     .hero-mobile-photo img {
       display: block;
@@ -669,9 +733,6 @@
     <div class="grid lg:grid-cols-2 gap-12 items-center">
 
       <div class="z-20 order-2 lg:order-1 anim-fade-left">
-        <div class="mb-6">
-          <span class="btn-gradient text-surface px-5 py-2 font-extrabold text-[10px] md:text-xs uppercase tracking-[0.2em] inline-block rotate-2 rounded-full shadow">THE WILD SUMMER '26</span>
-        </div>
         <div class="relative inline-block mb-8">
           <h1 class="font-display text-5xl md:text-7xl xl:text-8xl leading-[0.9] mb-4">
             DE <span class="text-peach-dark block">ULTIEME</span>
@@ -734,6 +795,7 @@
 
       <div class="relative h-[400px] md:h-[600px] lg:h-[750px] order-1 lg:order-2 anim-fade-right" style="perspective: 1000px">
         <div class="collage-item absolute top-10 right-4 w-4/5 h-[450px] rounded-[3rem] overflow-hidden border-8 border-surface rotate-[4deg] z-10">
+          <span class="hero-photo-badge btn-gradient text-surface px-5 py-2 font-extrabold text-[10px] md:text-xs uppercase tracking-[0.2em] rounded-full shadow">THE WILD SUMMER '26</span>
           <img
             alt="Domstad Boot op de Utrechtse grachten"
             class="w-full h-full object-cover"
@@ -1004,7 +1066,11 @@
     </div>
 
     <div class="insta-strip gap-8 lg:gap-14 py-10">
-      <figure class="polaroid bg-white p-4 pb-10 rotate-[-5deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+      <figure class="insta-card polaroid bg-white p-4 pb-10 rotate-[-5deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+        <button class="insta-like" type="button" aria-pressed="false" data-liked="false" data-base-count="128">
+          <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+          <span class="insta-like-count">128</span>
+        </button>
         <img
           alt="Feest op de boot - #CHEERS"
           class="w-full h-44 md:h-56 object-cover"
@@ -1015,7 +1081,11 @@
         <figcaption class="text-dark-accent font-display text-center mt-4 text-lg">#CHEERS</figcaption>
       </figure>
 
-      <figure class="polaroid bg-white p-4 pb-10 rotate-[8deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-20" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+      <figure class="insta-card polaroid bg-white p-4 pb-10 rotate-[8deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-20" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+        <button class="insta-like" type="button" aria-pressed="false" data-liked="false" data-base-count="203">
+          <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+          <span class="insta-like-count">203</span>
+        </button>
         <img
           alt="Tropical vibes op het water"
           class="w-full h-44 md:h-56 object-cover"
@@ -1026,7 +1096,11 @@
         <figcaption class="text-dark-accent font-display text-center mt-4 text-lg">TROPICAL VIBES</figcaption>
       </figure>
 
-      <figure class="polaroid bg-white p-4 pb-10 rotate-[-3deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+      <figure class="insta-card polaroid bg-white p-4 pb-10 rotate-[-3deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+        <button class="insta-like" type="button" aria-pressed="false" data-liked="false" data-base-count="176">
+          <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+          <span class="insta-like-count">176</span>
+        </button>
         <img
           alt="Zomer 100% goed op de Utrechtse grachten"
           class="w-full h-44 md:h-56 object-cover"
@@ -1363,6 +1437,25 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 animTargets.forEach(el => observer.observe(el));
+
+// ── Insta likes ───────────────────────────────────────────────────────────
+document.querySelectorAll('.insta-like').forEach((button) => {
+  button.addEventListener('click', () => {
+    const baseCount = parseInt(button.dataset.baseCount || '0', 10);
+    const isLiked = button.dataset.liked === 'true';
+    const nextLiked = !isLiked;
+    const count = nextLiked ? baseCount + 1 : baseCount;
+
+    button.dataset.liked = String(nextLiked);
+    button.setAttribute('aria-pressed', String(nextLiked));
+    button.classList.toggle('liked', nextLiked);
+
+    const countEl = button.querySelector('.insta-like-count');
+    if (countEl) {
+      countEl.textContent = String(count);
+    }
+  });
+});
 
 // ── Calculator ───────────────────────────────────────────────────────────
 const packagePrices = {
