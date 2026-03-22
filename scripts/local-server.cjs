@@ -4,9 +4,10 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-const { PACKAGES, createBooking, getAvailability, getStorageFile, isValidDate } = require('./lib/bookings');
+const { PACKAGES, createBooking, getAvailability, getStorageFile, isValidDate } = require('../lib/bookings');
 
 const PORT = process.env.PORT || 3001;
+const ROOT_DIR = path.join(__dirname, '..');
 
 // ---------------------------------------------------------------------------
 // Express app
@@ -24,7 +25,7 @@ app.use(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname));
+app.use(express.static(ROOT_DIR));
 
 // ---------------------------------------------------------------------------
 // Routes

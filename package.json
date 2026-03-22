@@ -2,10 +2,10 @@
   "name": "domstadboot-api",
   "version": "1.0.0",
   "description": "Lokale booking API voor Domstadboot — boot party verhuur Utrecht",
-  "main": "local-server.js",
+  "main": "scripts/local-server.cjs",
   "scripts": {
-    "start": "node local-server.js",
-    "dev": "nodemon local-server.js"
+    "start": "node scripts/local-server.cjs",
+    "dev": "nodemon scripts/local-server.cjs"
   },
   "keywords": [
     "domstadboot",
