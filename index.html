@@ -86,7 +86,7 @@
 </header>
 
 <!-- ========== HERO ========== -->
-<section id="main-content" class="relative min-h-screen pt-20 pb-16 flex items-center overflow-hidden bg-surface" tabindex="-1" style="outline:none;" aria-label="Hero sectie: Domstad Boot">
+<main id="main-content" class="relative min-h-screen pt-20 pb-16 flex items-center overflow-hidden bg-surface" tabindex="-1" style="outline:none;" aria-label="Hero sectie: Domstad Boot">
   <span id="vloot" aria-hidden="true" style="position:absolute;top:0;left:0;pointer-events:none;"></span>
   <div class="absolute inset-0 bg-groovy-waves hero-wave-motion pointer-events-none" style="opacity:0.45;z-index:0;" aria-hidden="true"></div>
 
@@ -186,7 +186,6 @@
           />
         </div>
         <div class="absolute -top-10 right-10 w-32 h-32 bg-vibrant-peach rounded-full blur-3xl opacity-30" aria-hidden="true"></div>
-        <div class="absolute top-1/2 left-1/4 w-48 h-48 border-4 border-dashed border-vibrant-peach rounded-full opacity-20" aria-hidden="true"></div>
       </div>
 
     </div>
@@ -198,7 +197,7 @@
       <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fff1e6"/>
     </svg>
   </div>
-</section>
+</main>
 
 <!-- ========== PAKKETTEN ========== -->
 <section id="ervaring" class="py-32 px-6 relative bg-surface-low">
@@ -349,21 +348,21 @@
       <fieldset class="mb-8">
         <legend class="font-display text-2xl mb-4 block" style="color:#3c3024">Pakket</legend>
         <div class="grid md:grid-cols-3 gap-3" role="radiogroup" aria-label="Kies een pakket">
-          <label class="calc-option selected flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bridal" aria-pressed="true">
+          <label class="calc-option selected flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bridal">
             <input type="radio" name="calc-package" value="bridal-vip" class="sr-only" checked onchange="updateCalc()" aria-label="Bridal VIP €69 per persoon"/>
             <svg class="icon text-vibrant-peach" style="font-size:22px" aria-hidden="true"><use href="#icon-diamond"></use></svg>
             <span class="font-display text-sm leading-tight">Bridal VIP</span>
             <span class="text-vibrant-peach font-extrabold text-lg leading-none">€69</span>
             <span class="text-[10px] opacity-60 uppercase tracking-wider">p.p.</span>
           </label>
-          <label class="calc-option flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bubbels" aria-pressed="false">
+          <label class="calc-option flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bubbels">
             <input type="radio" name="calc-package" value="bubbels-bites" class="sr-only" onchange="updateCalc()" aria-label="Bubbels en Bites €45 per persoon"/>
             <svg class="icon text-vibrant-peach" style="font-size:22px" aria-hidden="true"><use href="#icon-glass"></use></svg>
             <span class="font-display text-sm leading-tight">Bubbels &amp; Bites</span>
             <span class="text-vibrant-peach font-extrabold text-lg leading-none">€45</span>
             <span class="text-[10px] opacity-60 uppercase tracking-wider">p.p.</span>
           </label>
-          <label class="calc-option flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-golden" aria-pressed="false">
+          <label class="calc-option flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-golden">
             <input type="radio" name="calc-package" value="golden-hour" class="sr-only" onchange="updateCalc()" aria-label="Golden Hour €55 per persoon"/>
             <svg class="icon text-vibrant-peach" style="font-size:22px" aria-hidden="true"><use href="#icon-sun"></use></svg>
             <span class="font-display text-sm leading-tight">Golden Hour</span>
@@ -525,19 +524,19 @@
 </div>
 
 <!-- ========== FOOTER ========== -->
-<footer id="contact" class="bg-surface py-24 px-6">
+<footer id="contact" class="bg-surface text-on-surface py-24 px-6">
   <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16">
     <div class="md:col-span-2">
       <div class="font-display text-5xl text-peach-dark mb-6">DOMSTAD BOOT</div>
       <p class="text-xl font-bold max-w-sm uppercase tracking-tighter leading-relaxed text-on-surface">De meest kleurrijke en chaotisch gezellige vaarervaring van Utrecht. We doen het anders, we doen het beter.</p>
-      <p class="mt-6 font-semibold text-sm opacity-70">
-        <a href="mailto:hallo@domstadboot.nl" class="hover:text-vibrant-peach transition-colors">hallo@domstadboot.nl</a><br>
-        <a href="tel:+31612345678" class="hover:text-vibrant-peach transition-colors">+31 6 12 34 56 78</a>
-      </p>
+      <div class="mt-6 flex flex-col items-start gap-2 text-sm font-semibold text-dark-accent">
+        <a href="mailto:hallo@domstadboot.nl" class="inline-flex min-h-11 items-center py-2 hover:text-vibrant-peach transition-colors">hallo@domstadboot.nl</a>
+        <a href="tel:+31612345678" class="inline-flex min-h-11 items-center py-2 hover:text-vibrant-peach transition-colors">+31 6 12 34 56 78</a>
+      </div>
     </div>
 
     <nav aria-label="Footer navigatie">
-      <h4 class="font-display text-2xl mb-8">NAVIGEER</h4>
+      <h3 class="font-display text-2xl mb-8">NAVIGEER</h3>
       <ul class="space-y-5 font-bold uppercase text-xs tracking-widest">
         <li><a class="hover:text-vibrant-peach transition-colors" href="#vloot">De Vloot</a></li>
         <li><a class="hover:text-vibrant-peach transition-colors" href="#ervaring">Pakketten</a></li>
@@ -547,7 +546,7 @@
     </nav>
 
     <div>
-      <h4 class="font-display text-2xl mb-8">CONNECT</h4>
+      <h3 class="font-display text-2xl mb-8">CONNECT</h3>
       <div class="flex gap-4 flex-wrap">
         <a href="https://instagram.com/vibeboats" target="_blank" rel="noopener noreferrer" aria-label="Instagram van Vibeboats" class="w-14 h-14 bg-vibrant-peach rounded-full flex items-center justify-center text-surface cursor-pointer hover:rotate-12 hover:scale-105 transition-all shadow-lg">
           <svg class="icon text-2xl" aria-hidden="true"><use href="#icon-camera"></use></svg>
@@ -562,7 +561,7 @@
     </div>
   </div>
 
-  <div class="mt-20 text-center font-extrabold uppercase tracking-[0.4em] text-xs opacity-50">
+  <div class="mt-20 text-center font-extrabold uppercase tracking-[0.28em] text-xs text-dark-accent opacity-80">
     &copy; 2026 VibeBoats by Domstad Boot &mdash; ALL RIGHTS RESERVED &mdash; LET'S GO!
   </div>
 </footer>
@@ -845,13 +844,11 @@ function updateCalc() {
   // Style selected options
   document.querySelectorAll('.calc-option').forEach(el => {
     el.classList.remove('selected');
-    el.setAttribute('aria-pressed', 'false');
   });
   const optMap = { 'bridal-vip': 'opt-bridal', 'bubbels-bites': 'opt-bubbels', 'golden-hour': 'opt-golden' };
   const activeEl = document.getElementById(optMap[selected]);
   if (activeEl) {
     activeEl.classList.add('selected');
-    activeEl.setAttribute('aria-pressed', 'true');
   }
 }
 
