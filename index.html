@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Domstad Boot | Ultieme Boat Trip Utrecht</title>
+<meta name="description" content="De meest kleurrijke vaarervaring van Utrecht. Vrijgezellenfeesten, bubbels en 100% Insta-proof op de Utrechtse grachten."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "surface": "#fff8f4",
+          "surface-low": "#fff1e6",
+          "surface-high": "#f1e0cf",
+          "warm-cream": "#F4E2D1",
+          "vibrant-peach": "#F59B7C",
+          "peach-dark": "#924a31",
+          "dark-accent": "#392f23",
+          "on-surface": "#231a10"
+        },
+        fontFamily: {
+          "display": ["Shrikhand", "serif"],
+          "body": ["Outfit", "sans-serif"]
+        },
+        lineHeight: {
+          "relaxed-plus": "1.75",
+          "tight-plus": "1.1"
+        },
+        borderRadius: {
+          "4xl": "3rem",
+          "5xl": "4rem"
+        }
+      },
+    },
+  }
+</script>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .bg-groovy-waves {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cpath fill='%23F59B7C' d='M0 160c150-100 300-100 450 0s300 100 450 0 300-100 450 0 300-100 450 0v640H0z'/%3E%3Cpath fill='%23f7ac92' d='M0 320c150-100 300-100 450 0s300 100 450 0 300-100 450 0 300 100 450 0v480H0z'/%3E%3Cpath fill='%23f9bdab' d='M0 480c150-100 300-100 450 0s300 100 450 0 300-100 450 0 300 100 450 0v320H0z'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+    }
+    .text-outline {
+      -webkit-text-stroke: 1.5px #F59B7C;
+      color: transparent;
+    }
+    .floating-card {
+      box-shadow: 20px 20px 0px 0px #F59B7C;
+    }
+    .floating-card-dark {
+      box-shadow: 20px 20px 0px 0px #392f23;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #924a31 0%, #F59B7C 100%);
+    }
+    .glass-modal {
+      background: rgba(255, 248, 244, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .glass-nav {
+      background: rgba(244, 226, 209, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  }
+
+  .collage-item {
+    filter: drop-shadow(10px 10px 20px rgba(57,47,35,0.12));
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .collage-item:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 50;
+  }
+
+  /* Scroll animations */
+  .anim-fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .anim-fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .anim-fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .anim-visible {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
+
+  /* Input fields */
+  .field-input {
+    background: #f1e0cf;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #231a10;
+    outline: none;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .field-input:focus {
+    background: #fff8f4;
+    box-shadow: 0 0 0 2px rgba(245,155,124,0.4);
+  }
+  .field-textarea {
+    background: #f1e0cf;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #231a10;
+    outline: none;
+    resize: none;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .field-textarea:focus {
+    background: #fff8f4;
+    box-shadow: 0 0 0 2px rgba(245,155,124,0.4);
+  }
+  .field-select {
+    background: #f1e0cf;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.75rem 1.25rem;
+    width: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #231a10;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .field-select:focus {
+    background: #fff8f4;
+    box-shadow: 0 0 0 2px rgba(245,155,124,0.4);
+  }
+
+  /* Wave SVG divider */
+  .wave-top {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave-bottom {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave-bottom svg {
+    display: block;
+    width: 100%;
+  }
+
+  /* Polaroid hover */
+  .polaroid {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  }
+  .polaroid:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    box-shadow: 0 30px 60px rgba(57,47,35,0.25) !important;
+    z-index: 30;
+  }
+
+  /* Calculator */
+  .calc-option {
+    cursor: pointer;
+    border-radius: 1.25rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.25s ease;
+    border: 2px solid rgba(60,48,36,0.15);
+    background: rgba(60,48,36,0.04);
+    color: #3c3024;
+  }
+  .calc-option:hover {
+    border-color: #F59B7C;
+    background: rgba(245,155,124,0.08);
+  }
+  .calc-option.selected {
+    background: rgba(245,155,124,0.12);
+    border-color: #F59B7C;
+    box-shadow: 0 0 0 3px rgba(245,155,124,0.25);
+    color: #3c3024;
+  }
+
+  /* Progress bar */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #924a31, #F59B7C);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s linear;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Modal overlay */
+  #booking-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  #booking-modal.open {
+    display: flex;
+  }
+  #modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(57, 47, 35, 0.6);
+    backdrop-filter: blur(4px);
+  }
+  #modal-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 3rem;
+    padding: 2.5rem;
+  }
+
+  /* Success state */
+  #form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  #form-success.show {
+    display: block;
+  }
+  #booking-form-inner.hidden {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    #modal-content {
+      padding: 1.75rem;
+      border-radius: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .anim-fade-up, .anim-fade-left, .anim-fade-right {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden antialiased pb-20 md:pb-28">
+
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-dark-accent focus:text-warm-cream focus:px-6 focus:py-3 focus:rounded-full focus:font-bold">
+  Sla navigatie over
+</a>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress" role="progressbar" aria-label="Pagina scroll voortgang"></div>
+
+<!-- ========== HEADER ========== -->
+<header class="absolute top-0 w-full z-50 px-6 py-8">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <a href="#" class="font-display text-4xl text-peach-dark -rotate-2 drop-shadow-sm hover:rotate-0 transition-transform" aria-label="Domstad Boot - terug naar boven">Domstad Boot</a>
+    <button
+      class="btn-gradient text-surface px-7 py-3 rounded-full font-display text-sm hover:scale-105 transition-transform shadow-lg tracking-wider"
+      onclick="openModal()"
+      aria-label="Reservering maken"
+    >SAY YES!</button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section id="main-content" class="relative min-h-screen pt-20 pb-16 flex items-center overflow-hidden bg-surface" tabindex="-1" style="outline:none;" aria-label="Hero sectie: Domstad Boot">
+  <span id="vloot" aria-hidden="true" style="position:absolute;top:0;left:0;pointer-events:none;"></span>
+  <div class="absolute inset-0 bg-groovy-waves pointer-events-none" style="opacity:0.45;z-index:0;" aria-hidden="true"></div>
+
+  <div class="container mx-auto px-6 relative">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <div class="z-20 order-2 lg:order-1 anim-fade-left">
+        <div class="mb-6">
+          <span class="btn-gradient text-surface px-5 py-2 font-extrabold text-[10px] md:text-xs uppercase tracking-[0.2em] inline-block rotate-2 rounded-full shadow">THE WILD SUMMER '26</span>
+        </div>
+        <div class="relative inline-block mb-8">
+          <h1 class="font-display text-5xl md:text-7xl xl:text-8xl leading-[0.9] mb-4">
+            DE <span class="text-peach-dark block">ULTIEME</span>
+            <span class="text-outline">BOAT TRIP</span>
+          </h1>
+        </div>
+        <div class="flex flex-wrap gap-3 mb-10">
+          <div class="flex items-center gap-2 bg-surface-high px-4 py-2.5 rounded-full shadow-sm">
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:18px;font-variation-settings:'FILL' 1">celebration</span>
+            <span class="text-sm font-bold text-on-surface tracking-wide uppercase">Vrijgezellenfeesten</span>
+          </div>
+          <div class="flex items-center gap-2 bg-surface-high px-4 py-2.5 rounded-full shadow-sm">
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:18px;font-variation-settings:'FILL' 1">wine_bar</span>
+            <span class="text-sm font-bold text-on-surface tracking-wide uppercase">Bubbels inbegrepen</span>
+          </div>
+          <div class="flex items-center gap-2 bg-surface-high px-4 py-2.5 rounded-full shadow-sm">
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:18px;font-variation-settings:'FILL' 1">photo_camera</span>
+            <span class="text-sm font-bold text-on-surface tracking-wide uppercase">100% Insta-proof</span>
+          </div>
+          <div class="flex items-center gap-2 bg-surface-high px-4 py-2.5 rounded-full shadow-sm">
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:18px;font-variation-settings:'FILL' 1">directions_boat</span>
+            <span class="text-sm font-bold text-on-surface tracking-wide uppercase">Grachten Utrecht</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <button
+            class="btn-gradient text-surface text-lg md:text-xl px-10 py-5 rounded-full font-display hover:rotate-2 hover:scale-105 transition-all shadow-2xl tracking-wide"
+            onclick="openModal()"
+            aria-label="Boek nu een boat trip"
+          >BOEK DE VIBE!</button>
+        </div>
+      </div>
+
+      <div class="relative h-[400px] md:h-[600px] lg:h-[750px] order-1 lg:order-2 anim-fade-right" style="perspective: 1000px">
+        <div class="collage-item absolute top-10 right-4 w-4/5 h-[450px] rounded-[3rem] overflow-hidden border-8 border-surface rotate-[4deg] z-10">
+          <img
+            alt="Domstad Boot op de Utrechtse grachten"
+            class="w-full h-full object-cover"
+            src="boot.jpeg"
+            loading="eager"
+            width="600" height="450"
+          />
+        </div>
+        <div class="collage-item absolute -top-4 left-0 w-[200px] h-[200px] md:w-[240px] md:h-[240px] rounded-full overflow-hidden border-8 border-vibrant-peach rotate-[-12deg] z-30 shadow-2xl">
+          <img
+            alt="Vriendinnen feesten op de boot"
+            class="w-full h-full object-cover"
+            src="boot.jpeg"
+            loading="lazy"
+            width="240" height="240"
+          />
+        </div>
+        <div class="collage-item absolute bottom-20 right-0 w-[220px] h-[260px] md:w-[280px] md:h-[320px] rounded-[2rem] overflow-hidden border-8 border-white rotate-[8deg] z-20">
+          <img
+            alt="Decoraties en feestversiering op de boot"
+            class="w-full h-full object-cover"
+            src="boot.jpeg"
+            loading="lazy"
+            width="280" height="320"
+          />
+        </div>
+        <div class="absolute -top-10 right-10 w-32 h-32 bg-vibrant-peach rounded-full blur-3xl opacity-30" aria-hidden="true"></div>
+        <div class="absolute top-1/2 left-1/4 w-48 h-48 border-4 border-dashed border-vibrant-peach rounded-full opacity-20" aria-hidden="true"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Wave divider bottom -->
+  <div class="wave-bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:80px;width:100%">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fff1e6"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== PAKKETTEN ========== -->
+<section id="ervaring" class="py-32 px-6 relative bg-surface-low">
+  <div class="absolute inset-0 bg-groovy-waves opacity-[0.08] -z-10" aria-hidden="true"></div>
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-16 md:mb-20 anim-fade-up">
+      <h2 class="font-display text-5xl md:text-8xl text-peach-dark mb-6 uppercase tracking-tight">
+        KIES JE <span class="text-dark-accent">STIJL</span>
+      </h2>
+      <p class="font-extrabold text-xl uppercase tracking-[0.25em] text-on-surface">Drie smaken van puur geluk</p>
+    </div>
+
+    <div class="space-y-20 md:space-y-32">
+
+      <!-- Pakket 1: Bridal VIP -->
+      <article class="relative group anim-fade-left" data-delay="0">
+        <div class="floating-card p-8 md:p-14 rounded-[3rem] relative z-10 transition-transform duration-300 group-hover:-translate-y-4" style="background:#f1e0cf;">
+          <div class="flex flex-col md:flex-row gap-10 items-center">
+            <div class="w-full md:w-1/2">
+              <div class="inline-block bg-vibrant-peach text-surface text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full mb-4">Meest Populair</div>
+              <h3 class="font-display text-4xl md:text-6xl mb-4 text-peach-dark">BRIDAL VIP</h3>
+              <p class="text-base font-medium mb-6 leading-relaxed text-on-surface">De koninklijke behandeling voor de aanstaande bruid. Inclusief alle toeters en bellen, onbeperkt prosecco en een vibe die niemand vergeet.</p>
+              <ul class="mb-8 space-y-2">
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Onbeperkt prosecco</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Bridal decoratiepakket</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Privé schipper 3 uur</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Bluetooth soundsysteem</li>
+              </ul>
+              <div class="flex items-end gap-2 mb-8">
+                <span class="font-display text-5xl" aria-label="Prijs 69 euro per persoon">€69</span>
+                <span class="font-extrabold uppercase text-xs mb-2 tracking-widest text-on-surface opacity-70">/ p.p.</span>
+              </div>
+              <button
+                class="w-full md:w-auto bg-dark-accent text-surface px-10 py-5 rounded-full font-display text-xl tracking-wide hover:scale-105 hover:bg-on-surface transition-all shadow-lg"
+                onclick="openModal('bridal-vip')"
+                aria-label="Boek het Bridal VIP pakket"
+              >BOEK DIT NU!</button>
+            </div>
+            <div class="w-full md:w-1/2 h-64 rounded-2xl overflow-hidden rotate-2 border-4 border-vibrant-peach shadow-lg">
+              <img
+                alt="Bridal party op de Domstad Boot"
+                class="w-full h-full object-cover"
+                src="boot.jpeg"
+                loading="lazy"
+                width="400" height="256"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pakket 2: Bubbels & Bites -->
+      <article class="relative group anim-fade-right md:ml-20" data-delay="100">
+        <div class="floating-card-dark bg-vibrant-peach p-8 md:p-14 rounded-[3rem] relative z-10 transition-transform duration-300 group-hover:-translate-y-4">
+          <div class="flex flex-col md:flex-row-reverse gap-10 items-center text-dark-accent">
+            <div class="w-full md:w-1/2">
+              <h3 class="font-display text-4xl md:text-6xl mb-4">BUBBELS &amp; BITES</h3>
+              <p class="text-base font-medium mb-6 leading-relaxed">Voor de fijnproevers die houden van een luxe borrel. IJskoude rosé en een plank vol lekkernijen terwijl je langs de Oudegracht glijdt.</p>
+              <ul class="mb-8 space-y-2">
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-dark-accent text-base" aria-hidden="true">check_circle</span> Rosé & borrelplank</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-dark-accent text-base" aria-hidden="true">check_circle</span> Ambiance verlichting</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-dark-accent text-base" aria-hidden="true">check_circle</span> Privé schipper 2 uur</li>
+              </ul>
+              <div class="flex items-end gap-2 mb-8">
+                <span class="font-display text-5xl" aria-label="Prijs 45 euro per persoon">€45</span>
+                <span class="font-extrabold uppercase text-xs mb-2 tracking-widest opacity-70">/ p.p.</span>
+              </div>
+              <button
+                class="w-full md:w-auto bg-surface text-peach-dark px-10 py-5 rounded-full font-display text-xl tracking-wide hover:scale-105 transition-all shadow-lg"
+                onclick="openModal('bubbels-bites')"
+                aria-label="Boek het Bubbels en Bites pakket"
+              >YUMMY!</button>
+            </div>
+            <div class="w-full md:w-1/2 h-64 rounded-2xl overflow-hidden -rotate-2 border-4 border-surface shadow-lg">
+              <img
+                alt="Luxe borrelplank en bubbels op de boot"
+                class="w-full h-full object-cover"
+                src="boot.jpeg"
+                loading="lazy"
+                width="400" height="256"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pakket 3: Golden Hour -->
+      <article class="relative group anim-fade-left md:mr-20" data-delay="200">
+        <div class="floating-card p-8 md:p-14 rounded-[3rem] relative z-10 transition-transform duration-300 group-hover:-translate-y-4" style="background:#f1e0cf;">
+          <div class="flex flex-col md:flex-row gap-10 items-center">
+            <div class="w-full md:w-1/2">
+              <h3 class="font-display text-4xl md:text-6xl mb-4 text-peach-dark">GOLDEN HOUR</h3>
+              <p class="text-base font-medium mb-6 leading-relaxed text-on-surface">De ultieme Instagram-shoot tijdens de zonsondergang. Het licht is perfect, de drankjes zijn koud en je feed zal ontploffen.</p>
+              <ul class="mb-8 space-y-2">
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Golden hour timing</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Content creator tips</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Privé schipper 2,5 uur</li>
+                <li class="flex items-center gap-2 text-sm font-semibold"><span class="material-symbols-outlined text-vibrant-peach text-base" aria-hidden="true">check_circle</span> Welkomstcocktail</li>
+              </ul>
+              <div class="flex items-end gap-2 mb-8">
+                <span class="font-display text-5xl" aria-label="Prijs 55 euro per persoon">€55</span>
+                <span class="font-extrabold uppercase text-xs mb-2 tracking-widest text-on-surface opacity-70">/ p.p.</span>
+              </div>
+              <button
+                class="w-full md:w-auto btn-gradient text-surface px-10 py-5 rounded-full font-display text-xl tracking-wide hover:scale-105 transition-all shadow-lg"
+                onclick="openModal('golden-hour')"
+                aria-label="Boek het Golden Hour pakket"
+              >PICTURE PERFECT</button>
+            </div>
+            <div class="w-full md:w-1/2 h-64 rounded-2xl overflow-hidden rotate-6 border-4 border-dark-accent shadow-lg">
+              <img
+                alt="Golden hour zonsondergang foto op de boot"
+                class="w-full h-full object-cover"
+                src="boot.jpeg"
+                loading="lazy"
+                width="400" height="256"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Wave divider bottom -->
+  <div class="wave-bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:80px;width:100%">
+      <path d="M0,20 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#392f23"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== PRIJSCALCULATOR ========== -->
+<section id="calculator" class="py-24 px-6 bg-dark-accent text-surface relative overflow-hidden">
+  <div class="absolute inset-0 bg-groovy-waves opacity-[0.18] rotate-180" aria-hidden="true"></div>
+
+  <div class="max-w-2xl mx-auto relative z-10 anim-fade-up">
+    <div class="text-center mb-16 md:mb-20">
+      <h2 class="font-display text-4xl md:text-6xl mb-4 text-vibrant-peach">BEREKEN JE PRIJS</h2>
+      <p class="font-extrabold uppercase tracking-[0.2em] text-sm opacity-80">Kies pakket en aantal personen</p>
+    </div>
+
+    <div class="bg-surface rounded-[2.5rem] p-8 md:p-10 shadow-2xl" style="box-shadow: 0 0 80px rgba(245,155,124,0.15);">
+
+      <!-- Pakket keuze -->
+      <fieldset class="mb-8">
+        <legend class="font-display text-2xl mb-4 block" style="color:#3c3024">Pakket</legend>
+        <div class="grid grid-cols-3 gap-3" role="radiogroup" aria-label="Kies een pakket">
+          <label class="calc-option selected flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bridal" aria-pressed="true">
+            <input type="radio" name="calc-package" value="bridal-vip" class="sr-only" checked onchange="updateCalc()" aria-label="Bridal VIP €69 per persoon"/>
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:22px;font-variation-settings:'FILL' 1">diamond</span>
+            <span class="font-display text-sm leading-tight">Bridal VIP</span>
+            <span class="text-vibrant-peach font-extrabold text-lg leading-none">€69</span>
+            <span class="text-[10px] opacity-60 uppercase tracking-wider">p.p.</span>
+          </label>
+          <label class="calc-option flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-bubbels" aria-pressed="false">
+            <input type="radio" name="calc-package" value="bubbels-bites" class="sr-only" onchange="updateCalc()" aria-label="Bubbels en Bites €45 per persoon"/>
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:22px;font-variation-settings:'FILL' 1">wine_bar</span>
+            <span class="font-display text-sm leading-tight">Bubbels &amp; Bites</span>
+            <span class="text-vibrant-peach font-extrabold text-lg leading-none">€45</span>
+            <span class="text-[10px] opacity-60 uppercase tracking-wider">p.p.</span>
+          </label>
+          <label class="calc-option flex flex-col items-center text-center gap-1 py-4 px-3 cursor-pointer" id="opt-golden" aria-pressed="false">
+            <input type="radio" name="calc-package" value="golden-hour" class="sr-only" onchange="updateCalc()" aria-label="Golden Hour €55 per persoon"/>
+            <span class="material-symbols-outlined text-vibrant-peach" style="font-size:22px;font-variation-settings:'FILL' 1">wb_sunny</span>
+            <span class="font-display text-sm leading-tight">Golden Hour</span>
+            <span class="text-vibrant-peach font-extrabold text-lg leading-none">€55</span>
+            <span class="text-[10px] opacity-60 uppercase tracking-wider">p.p.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Personen slider -->
+      <div class="mb-10">
+        <label for="persons-slider" class="font-display text-2xl mb-4 block" style="color:#3c3024">
+          Aantal personen: <span id="persons-display" class="text-peach-dark">8</span>
+        </label>
+        <input
+          type="range"
+          id="persons-slider"
+          min="4" max="12" value="8" step="1"
+          class="w-full h-3 rounded-full appearance-none cursor-pointer"
+          style="accent-color: #F59B7C;"
+          oninput="updateCalc()"
+          aria-label="Schuif om het aantal personen in te stellen"
+          aria-valuemin="4"
+          aria-valuemax="12"
+          aria-valuenow="8"
+        />
+        <div class="flex justify-between text-xs font-bold text-on-surface opacity-50 mt-2">
+          <span>4 pers.</span>
+          <span>12 pers.</span>
+        </div>
+      </div>
+
+      <!-- Totaal -->
+      <div class="bg-surface-high rounded-[2rem] p-6 flex items-center justify-between">
+        <div>
+          <p class="font-extrabold uppercase tracking-widest text-xs text-on-surface mb-1" style="color:#3c3024">Totale prijs</p>
+          <p id="calc-total" class="font-display text-5xl md:text-6xl text-peach-dark" aria-live="polite" aria-atomic="true">€552</p>
+          <p id="calc-breakdown" class="text-xs font-bold mt-1" style="color:#3c3024">8 personen × €69</p>
+        </div>
+        <button
+          class="btn-gradient text-surface px-8 py-4 rounded-full font-display text-lg tracking-wide hover:scale-105 transition-all shadow-lg"
+          onclick="openModalFromCalc()"
+          aria-label="Boek nu via de calculator"
+        >BOEK NU!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave divider bottom -->
+  <div class="wave-bottom" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:80px;width:100%">
+      <path d="M0,40 C360,0 1080,80 1440,20 L1440,80 L0,80 Z" fill="#fff8f4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== INSTA WALL ========== -->
+<section class="pt-28 pb-32 bg-surface overflow-hidden relative">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16 md:mb-20 anim-fade-up">
+      <h2 class="font-display text-5xl md:text-7xl mb-4 tracking-wider text-dark-accent">INSTA MAGIC</h2>
+      <p class="font-extrabold uppercase tracking-[0.3em] text-peach-dark text-sm md:text-base">TAG @VIBEBOATS VOOR EEUWIGE ROEM</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-8 lg:gap-14 py-10">
+      <figure class="polaroid bg-white p-4 pb-10 rotate-[-5deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+        <img
+          alt="Feest op de boot - #CHEERS"
+          class="w-full h-44 md:h-56 object-cover"
+          src="boot.jpeg"
+          loading="lazy"
+          width="288" height="224"
+        />
+        <figcaption class="text-dark-accent font-display text-center mt-4 text-lg">#CHEERS</figcaption>
+      </figure>
+
+      <figure class="polaroid bg-white p-4 pb-10 rotate-[8deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-20" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+        <img
+          alt="Tropical vibes op het water"
+          class="w-full h-44 md:h-56 object-cover"
+          src="boot.jpeg"
+          loading="lazy"
+          width="288" height="224"
+        />
+        <figcaption class="text-dark-accent font-display text-center mt-4 text-lg">TROPICAL VIBES</figcaption>
+      </figure>
+
+      <figure class="polaroid bg-white p-4 pb-10 rotate-[-3deg] w-60 h-72 md:w-72 md:h-80 shadow-2xl z-10" style="box-shadow: 12px 12px 40px rgba(57,47,35,0.18)">
+        <img
+          alt="Zomer 100% goed op de Utrechtse grachten"
+          class="w-full h-44 md:h-56 object-cover"
+          src="boot.jpeg"
+          loading="lazy"
+          width="288" height="224"
+        />
+        <figcaption class="text-dark-accent font-display text-center mt-4 text-lg">SUMMER 100%</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Wave bottom: transition into CTA surface-low section -->
+  <div style="overflow:hidden; line-height:0; margin-top:-2px; position:absolute; bottom:0; left:0; width:100%;" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:60px;display:block;">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fff1e6"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== CTA SECTIE ========== -->
+<section class="py-24 md:py-32 px-6 bg-surface-low relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="bg-vibrant-peach rounded-[4rem] p-10 md:p-24 relative overflow-hidden flex flex-col items-center text-center anim-fade-up">
+      <div class="absolute inset-0 bg-groovy-waves opacity-25 rotate-180" aria-hidden="true"></div>
+      <div class="relative z-10 w-full">
+        <h2 class="font-display text-5xl md:text-[7rem] text-surface mb-16 leading-[0.9]">WAAR WACHT<br class="hidden md:block"/> JE NOG OP?!</h2>
+
+        <div class="grid sm:grid-cols-3 gap-10 mb-20">
+          <div class="flex flex-col items-center gap-4 anim-fade-up" data-delay="0">
+            <span class="material-symbols-outlined text-6xl text-dark-accent" aria-hidden="true">stars</span>
+            <p class="font-extrabold uppercase tracking-widest text-sm text-dark-accent">LUXE SLOEP &amp; PRIVÉ SCHIPPER</p>
+          </div>
+          <div class="flex flex-col items-center gap-4 anim-fade-up" data-delay="100">
+            <span class="material-symbols-outlined text-6xl text-dark-accent" aria-hidden="true">volume_up</span>
+            <p class="font-extrabold uppercase tracking-widest text-sm text-dark-accent">BEUKEND SOUNDSYSTEEM</p>
+          </div>
+          <div class="flex flex-col items-center gap-4 anim-fade-up" data-delay="200">
+            <span class="material-symbols-outlined text-6xl text-dark-accent" aria-hidden="true">celebration</span>
+            <p class="font-extrabold uppercase tracking-widest text-sm text-dark-accent">EIGEN CATERING OPTIES</p>
+          </div>
+        </div>
+
+        <button
+          class="bg-dark-accent text-surface text-3xl md:text-4xl px-12 md:px-16 py-7 md:py-8 rounded-full font-display hover:scale-105 transition-transform shadow-2xl rotate-2 tracking-wide"
+          onclick="openModal()"
+          aria-label="Boek de vibe nu"
+        >BOEK DE VIBE NU!</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave divider above footer -->
+<div style="overflow:hidden; line-height:0; display:block; background:#fff1e6;" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:64px;display:block;">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fff8f4"/>
+  </svg>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer id="contact" class="bg-surface py-24 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16">
+    <div class="md:col-span-2">
+      <div class="font-display text-5xl text-peach-dark mb-6">DOMSTAD BOOT</div>
+      <p class="text-xl font-bold max-w-sm uppercase tracking-tighter leading-relaxed text-on-surface">De meest kleurrijke en chaotisch gezellige vaarervaring van Utrecht. We doen het anders, we doen het beter.</p>
+      <p class="mt-6 font-semibold text-sm opacity-70">
+        <a href="mailto:hallo@domstadboot.nl" class="hover:text-vibrant-peach transition-colors">hallo@domstadboot.nl</a><br>
+        <a href="tel:+31612345678" class="hover:text-vibrant-peach transition-colors">+31 6 12 34 56 78</a>
+      </p>
+    </div>
+
+    <nav aria-label="Footer navigatie">
+      <h4 class="font-display text-2xl mb-8">NAVIGEER</h4>
+      <ul class="space-y-5 font-bold uppercase text-xs tracking-widest">
+        <li><a class="hover:text-vibrant-peach transition-colors" href="#vloot">De Vloot</a></li>
+        <li><a class="hover:text-vibrant-peach transition-colors" href="#ervaring">Pakketten</a></li>
+        <li><a class="hover:text-vibrant-peach transition-colors" href="#calculator">Prijzen</a></li>
+        <li><a class="hover:text-vibrant-peach transition-colors" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <h4 class="font-display text-2xl mb-8">CONNECT</h4>
+      <div class="flex gap-4 flex-wrap">
+        <a href="https://instagram.com/vibeboats" target="_blank" rel="noopener noreferrer" aria-label="Instagram van Vibeboats" class="w-14 h-14 bg-vibrant-peach rounded-full flex items-center justify-center text-surface cursor-pointer hover:rotate-12 hover:scale-105 transition-all shadow-lg">
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">photo_camera</span>
+        </a>
+        <a href="mailto:hallo@domstadboot.nl" aria-label="Stuur een e-mail" class="w-14 h-14 bg-vibrant-peach rounded-full flex items-center justify-center text-surface cursor-pointer hover:rotate-12 hover:scale-105 transition-all shadow-lg">
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">mail</span>
+        </a>
+        <a href="tel:+31612345678" aria-label="Bel ons" class="w-14 h-14 bg-vibrant-peach rounded-full flex items-center justify-center text-surface cursor-pointer hover:rotate-12 hover:scale-105 transition-all shadow-lg">
+          <span class="material-symbols-outlined text-2xl" aria-hidden="true">phone</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-20 text-center font-extrabold uppercase tracking-[0.4em] text-xs opacity-50">
+    &copy; 2026 VibeBoats by Domstad Boot &mdash; ALL RIGHTS RESERVED &mdash; LET'S GO!
+  </div>
+</footer>
+
+<!-- ========== STICKY BOTTOM NAV ========== -->
+<nav
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 w-[92%] max-w-lg z-[100] glass-nav rounded-full shadow-2xl px-2 py-3 flex justify-around items-center"
+  aria-label="Snelnavigatie"
+>
+  <a class="flex flex-col items-center gap-1 px-3 py-2 text-peach-dark group" href="#vloot" aria-label="Navigeer naar vloot sectie">
+    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">directions_boat</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Vloot</span>
+  </a>
+  <a class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group" href="#ervaring" aria-label="Navigeer naar pakketten">
+    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">auto_awesome</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Ervaring</span>
+  </a>
+  <button class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group bg-transparent border-0 cursor-pointer" aria-label="Open boekingsformulier" onclick="openModal()">
+    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">calendar_month</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Boek Nu</span>
+  </button>
+  <a class="flex flex-col items-center gap-1 px-3 py-2 hover:text-vibrant-peach transition-colors group" href="#contact" aria-label="Navigeer naar contact">
+    <span class="material-symbols-outlined text-2xl group-hover:scale-125 transition-transform" aria-hidden="true">chat</span>
+    <span class="text-[10px] font-extrabold uppercase tracking-tighter">Contact</span>
+  </a>
+</nav>
+
+<!-- ========== BOEKING MODAL ========== -->
+<div
+  id="booking-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  aria-describedby="modal-desc"
+>
+  <div id="modal-backdrop" onclick="closeModal()"></div>
+
+  <div id="modal-content" class="glass-modal">
+    <!-- Header -->
+    <div class="flex justify-between items-start mb-8">
+      <div>
+        <h2 id="modal-title" class="font-display text-4xl text-peach-dark">BOEK JE TRIP!</h2>
+        <p id="modal-desc" class="font-bold uppercase tracking-widest text-xs opacity-70 mt-1">We nemen snel contact op</p>
+      </div>
+      <button
+        onclick="closeModal()"
+        class="w-12 h-12 rounded-full bg-surface-high flex items-center justify-center hover:bg-vibrant-peach hover:text-surface transition-all flex-shrink-0 mt-1"
+        aria-label="Sluit het boekingsformulier"
+      >
+        <span class="material-symbols-outlined text-xl" aria-hidden="true">close</span>
+      </button>
+    </div>
+
+    <!-- Form -->
+    <div id="booking-form-inner">
+      <form id="booking-form" onsubmit="handleSubmit(event)" novalidate>
+        <div class="space-y-5">
+
+          <!-- Naam -->
+          <div>
+            <label for="field-name" class="font-extrabold uppercase text-xs tracking-widest block mb-2 text-on-surface">Naam *</label>
+            <input
+              type="text"
+              id="field-name"
+              name="name"
+              class="field-input"
+              placeholder="Jouw naam"
+              required
+              autocomplete="name"
+            />
+            <p class="field-error text-xs text-red-500 mt-1 hidden" id="err-name">Vul je naam in</p>
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="field-email" class="font-extrabold uppercase text-xs tracking-widest block mb-2 text-on-surface">E-mailadres *</label>
+            <input
+              type="email"
+              id="field-email"
+              name="email"
+              class="field-input"
+              placeholder="jouw@email.nl"
+              required
+              autocomplete="email"
+            />
+            <p class="field-error text-xs text-red-500 mt-1 hidden" id="err-email">Vul een geldig e-mailadres in</p>
+          </div>
+
+          <!-- Datum -->
+          <div>
+            <label for="field-date" class="font-extrabold uppercase text-xs tracking-widest block mb-2 text-on-surface">Gewenste datum *</label>
+            <input
+              type="date"
+              id="field-date"
+              name="date"
+              class="field-input"
+              required
+              style="padding-right: 1.25rem;"
+            />
+            <p class="field-error text-xs text-red-500 mt-1 hidden" id="err-date">Kies een datum in de toekomst</p>
+          </div>
+
+          <!-- Pakket -->
+          <div>
+            <label for="field-package" class="font-extrabold uppercase text-xs tracking-widest block mb-2 text-on-surface">Pakket *</label>
+            <div class="relative">
+              <select
+                id="field-package"
+                name="package"
+                class="field-select"
+                required
+              >
+                <option value="" disabled selected>Kies je pakket</option>
+                <option value="bridal-vip">Bridal VIP &mdash; €69 p.p.</option>
+                <option value="bubbels-bites">Bubbels &amp; Bites &mdash; €45 p.p.</option>
+                <option value="golden-hour">Golden Hour &mdash; €55 p.p.</option>
+              </select>
+              <span class="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface opacity-50" aria-hidden="true">expand_more</span>
+            </div>
+            <p class="field-error text-xs text-red-500 mt-1 hidden" id="err-package">Kies een pakket</p>
+          </div>
+
+          <!-- Aantal personen -->
+          <div>
+            <label for="field-persons" class="font-extrabold uppercase text-xs tracking-widest block mb-2 text-on-surface">
+              Aantal personen * &mdash; <span id="modal-persons-display" class="text-peach-dark">8</span> personen
+            </label>
+            <input
+              type="range"
+              id="field-persons"
+              name="persons"
+              min="4" max="12" value="8" step="1"
+              class="w-full h-3 rounded-full appearance-none cursor-pointer mb-1"
+              style="accent-color: #F59B7C;"
+              oninput="updateModalPersons()"
+              aria-label="Aantal personen instellen"
+              aria-valuemin="4"
+              aria-valuemax="12"
+              aria-valuenow="8"
+            />
+            <div class="flex justify-between text-xs font-bold opacity-50">
+              <span>4 pers.</span>
+              <span>12 pers.</span>
+            </div>
+          </div>
+
+          <!-- Opmerkingen -->
+          <div>
+            <label for="field-notes" class="font-extrabold uppercase text-xs tracking-widest block mb-2 text-on-surface">Opmerkingen</label>
+            <textarea
+              id="field-notes"
+              name="notes"
+              class="field-textarea"
+              rows="3"
+              placeholder="Speciale wensen, allergieën, decoratieverzoeken..."
+            ></textarea>
+          </div>
+
+          <!-- Privacy -->
+          <div class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="field-privacy"
+              name="privacy"
+              required
+              class="mt-1 w-5 h-5 rounded-md cursor-pointer flex-shrink-0"
+              style="accent-color: #F59B7C;"
+              aria-required="true"
+            />
+            <label for="field-privacy" class="text-xs font-semibold leading-relaxed opacity-70 cursor-pointer">
+              Ik ga akkoord met de <a href="#" class="underline hover:text-vibrant-peach">privacyverklaring</a> en geef toestemming voor contact over mijn boeking *
+            </label>
+          </div>
+          <p class="field-error text-xs text-red-500 mt-1 hidden" id="err-privacy">Accepteer de privacyverklaring om door te gaan</p>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full btn-gradient text-surface py-5 rounded-full font-display text-2xl tracking-wide hover:scale-105 transition-all shadow-xl mt-2"
+          >VERSTUUR AANVRAAG!</button>
+
+        </div>
+      </form>
+    </div>
+
+    <!-- Succes state -->
+    <div id="form-success" aria-live="polite">
+      <div class="text-center py-8">
+        <div class="w-20 h-20 bg-vibrant-peach rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+          <span class="material-symbols-outlined text-4xl text-surface" aria-hidden="true">check</span>
+        </div>
+        <h3 class="font-display text-4xl text-peach-dark mb-4">GELUKT!</h3>
+        <p class="font-bold text-lg text-on-surface mb-2">Je aanvraag is verstuurd!</p>
+        <p class="text-sm opacity-70 mb-8">We nemen binnen 24 uur contact met je op om alles te bevestigen. Get ready to vibe!</p>
+        <button
+          onclick="closeModal()"
+          class="bg-dark-accent text-surface px-10 py-4 rounded-full font-display text-xl tracking-wide hover:scale-105 transition-all"
+        >SLUITEN</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+// ── Scroll progress bar ──────────────────────────────────────────────────
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+  progressBar.setAttribute('aria-valuenow', Math.round(pct));
+}, { passive: true });
+
+// ── Intersection Observer — scroll animations ────────────────────────────
+const animTargets = document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const delay = parseInt(entry.target.dataset.delay || '0', 10);
+      setTimeout(() => {
+        entry.target.classList.add('anim-visible');
+      }, delay);
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12,
+  rootMargin: '0px 0px -60px 0px'
+});
+
+animTargets.forEach(el => observer.observe(el));
+
+// ── Calculator ───────────────────────────────────────────────────────────
+const packagePrices = {
+  'bridal-vip': 69,
+  'bubbels-bites': 45,
+  'golden-hour': 55
+};
+const packageNames = {
+  'bridal-vip': 'Bridal VIP',
+  'bubbels-bites': 'Bubbels & Bites',
+  'golden-hour': 'Golden Hour'
+};
+
+function updateCalc() {
+  const selected = document.querySelector('input[name="calc-package"]:checked').value;
+  const persons = parseInt(document.getElementById('persons-slider').value, 10);
+  const price = packagePrices[selected] * persons;
+
+  document.getElementById('calc-total').textContent = '€' + price;
+  document.getElementById('calc-breakdown').textContent = persons + ' personen × €' + packagePrices[selected];
+  document.getElementById('persons-display').textContent = persons;
+  document.getElementById('persons-slider').setAttribute('aria-valuenow', persons);
+
+  // Style selected options
+  document.querySelectorAll('.calc-option').forEach(el => {
+    el.classList.remove('selected');
+    el.setAttribute('aria-pressed', 'false');
+  });
+  const optMap = { 'bridal-vip': 'opt-bridal', 'bubbels-bites': 'opt-bubbels', 'golden-hour': 'opt-golden' };
+  const activeEl = document.getElementById(optMap[selected]);
+  if (activeEl) {
+    activeEl.classList.add('selected');
+    activeEl.setAttribute('aria-pressed', 'true');
+  }
+}
+
+// ── Modal ────────────────────────────────────────────────────────────────
+let lastFocusedElement = null;
+
+function openModal(packageValue) {
+  lastFocusedElement = document.activeElement;
+  const modal = document.getElementById('booking-modal');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Reset form & success state
+  document.getElementById('booking-form').reset();
+  document.getElementById('booking-form-inner').classList.remove('hidden');
+  document.getElementById('form-success').classList.remove('show');
+  clearErrors();
+  updateModalPersons();
+
+  // Set today + 1 as min date
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  document.getElementById('field-date').min = tomorrow.toISOString().split('T')[0];
+
+  // Pre-select package if provided
+  if (packageValue) {
+    const sel = document.getElementById('field-package');
+    sel.value = packageValue;
+  }
+
+  // Focus first input
+  setTimeout(() => {
+    document.getElementById('field-name').focus();
+  }, 100);
+}
+
+function openModalFromCalc() {
+  const selected = document.querySelector('input[name="calc-package"]:checked');
+  openModal(selected ? selected.value : null);
+  // Also copy persons
+  const persons = document.getElementById('persons-slider').value;
+  document.getElementById('field-persons').value = persons;
+  updateModalPersons();
+}
+
+function closeModal() {
+  const modal = document.getElementById('booking-modal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
+
+// Trap focus inside modal
+document.getElementById('booking-modal').addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key !== 'Tab') return;
+
+  const modal = document.getElementById('modal-content');
+  const focusable = modal.querySelectorAll(
+    'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]'
+  );
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if (e.shiftKey) {
+    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+  } else {
+    if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+
+function updateModalPersons() {
+  const val = document.getElementById('field-persons').value;
+  document.getElementById('modal-persons-display').textContent = val;
+  document.getElementById('field-persons').setAttribute('aria-valuenow', val);
+}
+
+// ── Form validation & submit ─────────────────────────────────────────────
+function clearErrors() {
+  document.querySelectorAll('.field-error').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.field-input, .field-select, .field-textarea').forEach(el => {
+    el.style.boxShadow = '';
+  });
+}
+
+function showError(id, inputId) {
+  const errEl = document.getElementById(id);
+  if (errEl) errEl.classList.remove('hidden');
+  if (inputId) {
+    const inp = document.getElementById(inputId);
+    if (inp) inp.style.boxShadow = '0 0 0 2px rgba(239,68,68,0.5)';
+  }
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  clearErrors();
+
+  let valid = true;
+  const name = document.getElementById('field-name').value.trim();
+  const email = document.getElementById('field-email').value.trim();
+  const date = document.getElementById('field-date').value;
+  const pkg = document.getElementById('field-package').value;
+  const privacy = document.getElementById('field-privacy').checked;
+
+  if (!name) { showError('err-name', 'field-name'); valid = false; }
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRe.test(email)) { showError('err-email', 'field-email'); valid = false; }
+
+  if (!date || new Date(date) <= new Date()) { showError('err-date', 'field-date'); valid = false; }
+
+  if (!pkg) { showError('err-package', 'field-package'); valid = false; }
+
+  if (!privacy) { showError('err-privacy', 'field-privacy'); valid = false; }
+
+  if (!valid) {
+    // Focus first errored field
+    const firstErr = document.querySelector('.field-error:not(.hidden)');
+    if (firstErr) {
+      const fieldId = firstErr.id.replace('err-', 'field-');
+      const field = document.getElementById(fieldId);
+      if (field) field.focus();
+    }
+    return;
+  }
+
+  // Simulate submit
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'VERSTUREN...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    document.getElementById('booking-form-inner').classList.add('hidden');
+    document.getElementById('form-success').classList.add('show');
+  }, 1000);
+}
+
+// ── Init calculator ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  updateCalc();
+  // Set min date on load
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dateField = document.getElementById('field-date');
+  if (dateField) dateField.min = tomorrow.toISOString().split('T')[0];
+});
+</script>
+
+</body>
+</html>

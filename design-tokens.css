@@ -1,0 +1,477 @@
+/**
+ * Design Tokens — Domstad Boot / VibeBoats
+ * Creative North Star: "The Sun-Drenched Editorial"
+ *
+ * All design decisions trace back to DESIGN.md.
+ * Values extracted from both DESIGN.md spec and code.html implementation audit.
+ *
+ * Usage: import this file before components.css
+ *   <link rel="stylesheet" href="design-tokens.css" />
+ *   <link rel="stylesheet" href="components.css" />
+ */
+
+/* ============================================================
+   1. COLOR TOKENS
+   ============================================================ */
+
+:root {
+
+  /* --- Surface Hierarchy (tonal layering, no hard borders) ---
+       Stack these tiers to create depth without shadows or lines.
+       Darkest surface = most "elevated" / most prominent content. */
+
+  --color-surface:                  #fff8f4;  /* Base page background — warm sand */
+  --color-surface-dim:              #fef3ec;  /* Slightly dimmed surface, section alternation */
+  --color-surface-container-lowest: #fff1e6;  /* First container tier */
+  --color-surface-container-low:    #fdeadb;  /* Second container tier */
+  --color-surface-container:        #fbe3d0;  /* Mid container */
+  --color-surface-container-high:   #f7d9c4;  /* Elevated card surface */
+  --color-surface-container-highest:#f1e0cf;  /* Featured / most prominent card */
+
+  /* --- Primary Brand Colors --- */
+
+  --color-primary:            #924a31;  /* Deep burnt sienna — gradient start, pressed state */
+  --color-primary-container:  #f59b7c;  /* Vibrant Peach — primary brand accent, CTAs */
+  --color-primary-mid:        #f07856;  /* Interpolated midpoint for three-stop gradients */
+  --color-on-primary:         #fff8f4;  /* Text/icons on primary-colored surfaces */
+  --color-on-primary-container: #3d1a0a; /* Text on peach background */
+
+  /* --- Secondary / Dark Accent --- */
+
+  --color-secondary:          #392f23;  /* Deep espresso — nav, dark sections, bold text */
+  --color-secondary-container:#5c4a35;  /* Lighter espresso for secondary containers */
+  --color-on-secondary:       #fff8f4;  /* Text on secondary-colored surfaces */
+  --color-on-secondary-container: #fde8d8; /* Text on secondary container */
+
+  /* --- Tertiary (warm highlight, used sparingly) --- */
+
+  --color-tertiary:           #c46a3e;  /* Mid-toned terracotta for tertiary accents */
+  --color-tertiary-container: #f9bdab;  /* Lightest peach wave fill */
+  --color-on-tertiary:        #fff8f4;
+  --color-on-tertiary-container: #4a1a08;
+
+  /* --- On-Surface / Text Colors --- */
+
+  --color-on-surface:         #231a10;  /* Primary text — deep espresso, not pure black */
+  --color-on-surface-variant: #5c4a35;  /* Secondary text, captions, labels */
+  --color-outline:            rgba(35, 26, 16, 0.15); /* Ghost border — 15% opacity max */
+  --color-outline-variant:    rgba(245, 155, 124, 0.25); /* Peach ghost border on focus */
+
+  /* --- Semantic States --- */
+
+  --color-error:              #c0392b;
+  --color-error-container:    #fdecea;
+  --color-on-error:           #ffffff;
+  --color-on-error-container: #7b1c14;
+
+  --color-success:            #2e7d52;
+  --color-success-container:  #e8f5ee;
+  --color-on-success:         #ffffff;
+
+  --color-warning:            #b5611a;
+  --color-warning-container:  #fdf0e3;
+  --color-on-warning:         #ffffff;
+
+  --color-info:               #2563a8;
+  --color-info-container:     #e8f1fc;
+  --color-on-info:            #ffffff;
+
+  /* --- Utility --- */
+
+  --color-white:              #ffffff;
+  --color-scrim:              rgba(35, 26, 16, 0.32); /* Overlay scrim for modals */
+  --color-shadow-warm:        rgba(35, 26, 16, 0.06); /* Ambient glow shadow base */
+}
+
+
+/* ============================================================
+   2. TYPOGRAPHY TOKENS
+   ============================================================ */
+
+:root {
+
+  /* --- Font Families ---
+       Display/Serif: editorial voice for headlines
+       Body/Sans: functional voice for specs, prices, forms
+       Monospace: price callouts, codes */
+
+  --font-display:    'Noto Serif', 'Georgia', serif;          /* DESIGN.md spec */
+  --font-body:       'Plus Jakarta Sans', 'Inter', sans-serif; /* DESIGN.md spec */
+  --font-brand:      'Shrikhand', serif;                       /* Retained from prototype — logo/wordmark only */
+  --font-mono:       'JetBrains Mono', 'Courier New', monospace;
+
+  /* --- Font Size Scale (base: 16px / 1rem) --- */
+
+  --text-xs:    0.625rem;   /* 10px  — micro labels, nav tab labels */
+  --text-sm:    0.75rem;    /* 12px  — captions, legal */
+  --text-base:  1rem;       /* 16px  — body default */
+  --text-md:    1.125rem;   /* 18px  — body emphasis */
+  --text-lg:    1.25rem;    /* 20px  — large body, card body */
+  --text-xl:    1.5rem;     /* 24px  — section intros */
+  --text-2xl:   2rem;       /* 32px  — title-lg */
+  --text-3xl:   2.5rem;     /* 40px  — headline-md */
+  --text-4xl:   3.25rem;    /* 52px  — headline-lg */
+  --text-5xl:   4.5rem;     /* 72px  — display-sm */
+  --text-6xl:   6rem;       /* 96px  — display-md */
+  --text-7xl:   8rem;       /* 128px — display-lg, magazine masthead */
+
+  /* --- Named Type Roles (pair these, never mix arbitrarily) --- */
+
+  /* display-lg: hero masthead, maximum impact */
+  --type-display-lg-size:    var(--text-7xl);
+  --type-display-lg-font:    var(--font-brand);
+  --type-display-lg-weight:  400; /* Shrikhand is inherently heavy */
+  --type-display-lg-line-h:  0.9;
+  --type-display-lg-tracking: -0.02em;
+
+  /* display-md: large section titles */
+  --type-display-md-size:    var(--text-6xl);
+  --type-display-md-font:    var(--font-brand);
+  --type-display-md-weight:  400;
+  --type-display-md-line-h:  1.0;
+  --type-display-md-tracking: -0.01em;
+
+  /* headline-lg: editorial section headers (Serif) */
+  --type-headline-lg-size:    var(--text-4xl);
+  --type-headline-lg-font:    var(--font-display);
+  --type-headline-lg-weight:  700;
+  --type-headline-lg-line-h:  1.1;
+  --type-headline-lg-tracking: -0.02em;
+
+  /* headline-md: card titles, package names */
+  --type-headline-md-size:    var(--text-3xl);
+  --type-headline-md-font:    var(--font-display);
+  --type-headline-md-weight:  700;
+  --type-headline-md-line-h:  1.15;
+  --type-headline-md-tracking: -0.01em;
+
+  /* title-sm: button labels, sub-headers (Sans) */
+  --type-title-sm-size:    var(--text-base);
+  --type-title-sm-font:    var(--font-body);
+  --type-title-sm-weight:  700;
+  --type-title-sm-line-h:  1.2;
+  --type-title-sm-tracking: 0.08em;
+
+  /* body-md: paragraph text, card descriptions */
+  --type-body-md-size:    var(--text-md);
+  --type-body-md-font:    var(--font-body);
+  --type-body-md-weight:  400;
+  --type-body-md-line-h:  1.75;
+  --type-body-md-tracking: 0;
+
+  /* body-sm: secondary body, captions */
+  --type-body-sm-size:    var(--text-base);
+  --type-body-sm-font:    var(--font-body);
+  --type-body-sm-weight:  400;
+  --type-body-sm-line-h:  1.6;
+  --type-body-sm-tracking: 0;
+
+  /* label-md: kicker tags, ALL CAPS category labels above headlines */
+  --type-label-md-size:    var(--text-sm);
+  --type-label-md-font:    var(--font-body);
+  --type-label-md-weight:  800;
+  --type-label-md-line-h:  1.2;
+  --type-label-md-tracking: 0.25em;
+
+  /* label-sm: micro nav labels, badge text */
+  --type-label-sm-size:    var(--text-xs);
+  --type-label-sm-font:    var(--font-body);
+  --type-label-sm-weight:  800;
+  --type-label-sm-line-h:  1.2;
+  --type-label-sm-tracking: 0.2em;
+
+  /* price-display: large price callouts */
+  --type-price-size:    var(--text-5xl);
+  --type-price-font:    var(--font-brand);
+  --type-price-weight:  400;
+  --type-price-line-h:  1.0;
+}
+
+
+/* ============================================================
+   3. SPACING TOKENS
+   ============================================================ */
+
+:root {
+
+  /* Base unit: 4px.
+     Token names match the 4px grid (spacing-1 = 4px, spacing-2 = 8px …).
+     Use spacing-16 and spacing-20 for luxury white space per DESIGN.md. */
+
+  --spacing-0:   0;
+  --spacing-1:   0.25rem;   /*  4px */
+  --spacing-2:   0.5rem;    /*  8px */
+  --spacing-3:   0.75rem;   /* 12px */
+  --spacing-4:   1rem;      /* 16px */
+  --spacing-5:   1.25rem;   /* 20px */
+  --spacing-6:   1.5rem;    /* 24px */
+  --spacing-7:   1.75rem;   /* 28px */
+  --spacing-8:   2rem;      /* 32px */
+  --spacing-9:   2.25rem;   /* 36px */
+  --spacing-10:  2.5rem;    /* 40px */
+  --spacing-11:  2.75rem;   /* 44px */
+  --spacing-12:  3rem;      /* 48px */
+  --spacing-14:  3.5rem;    /* 56px */
+  --spacing-16:  4rem;      /* 64px  — luxury white space */
+  --spacing-18:  4.5rem;    /* 72px */
+  --spacing-20:  5rem;      /* 80px  — maximum luxury white space */
+  --spacing-24:  6rem;      /* 96px  — section vertical padding */
+  --spacing-32:  8rem;      /* 128px — hero section breathing room */
+
+  /* Semantic spacing aliases */
+  --spacing-section-v:   var(--spacing-24); /* Default vertical section padding */
+  --spacing-card-h:      var(--spacing-8);  /* Horizontal card padding */
+  --spacing-card-v:      var(--spacing-10); /* Vertical card padding */
+  --spacing-card-gap:    var(--spacing-10); /* Gap between stacked cards */
+  --spacing-inline-gap:  var(--spacing-4);  /* Gap inside buttons, tags */
+  --spacing-container-x: var(--spacing-6);  /* Page edge padding (mobile) */
+
+  /* Touch target minimum (WCAG 2.5.5) */
+  --touch-target-min:    2.75rem; /* 44px */
+}
+
+
+/* ============================================================
+   4. BORDER RADIUS TOKENS
+   ============================================================ */
+
+:root {
+
+  /* DESIGN.md Rule: "Every element must have at least rounded-md (1.5rem).
+     Sharp corners are strictly forbidden." */
+
+  --radius-sm:    0.5rem;    /*  8px — only for micro badges / internal chips */
+  --radius-md:    1.5rem;    /* 24px — minimum allowed radius, checkboxes, tags */
+  --radius-lg:    2rem;      /* 32px — standard cards, modals */
+  --radius-xl:    3rem;      /* 48px — featured cards, large containers */
+  --radius-2xl:   4rem;      /* 64px — hero containers, CTA sections */
+  --radius-full:  9999px;    /* Pill — buttons, inputs, nav bar */
+
+  /* Component aliases */
+  --radius-button:      var(--radius-full);  /* All buttons are pill-shaped */
+  --radius-input:       var(--radius-full);  /* Capsule inputs */
+  --radius-card:        var(--radius-xl);    /* Standard card */
+  --radius-card-featured: var(--radius-xl); /* Featured/elevated card */
+  --radius-modal:       var(--radius-lg);    /* Booking modal */
+  --radius-nav:         var(--radius-full);  /* Floating nav bar */
+  --radius-image:       var(--radius-lg);    /* Image thumbnails in cards */
+  --radius-collage:     var(--radius-xl);    /* Hero collage images */
+  --radius-tag:         var(--radius-md);    /* Kicker / badge tags */
+}
+
+
+/* ============================================================
+   5. SHADOW & ELEVATION TOKENS
+   ============================================================ */
+
+:root {
+
+  /* DESIGN.md Rule: No grey shadows. All shadows must be warm-toned
+     ambient glows — derived from on_surface (#231a10), very low opacity.
+     Minimum blur: 32px. Maximum opacity: 6% base. */
+
+  /* Ambient Glow — for floating elements (nav, FABs, modals) */
+  --shadow-ambient-sm:
+    0 4px 16px rgba(35, 26, 16, 0.06),
+    0 1px 4px  rgba(35, 26, 16, 0.04);
+
+  --shadow-ambient-md:
+    0 8px 32px  rgba(35, 26, 16, 0.08),
+    0 2px 8px   rgba(35, 26, 16, 0.05);
+
+  --shadow-ambient-lg:
+    0 16px 48px rgba(35, 26, 16, 0.10),
+    0 4px  16px rgba(35, 26, 16, 0.06);
+
+  --shadow-ambient-xl:
+    0 24px 64px rgba(35, 26, 16, 0.12),
+    0 8px  24px rgba(35, 26, 16, 0.07);
+
+  /* Floating Card Offset Shadow — the bold peach hard-offset from prototype */
+  --shadow-card-offset: 20px 20px 0px 0px var(--color-primary-container);
+  --shadow-card-offset-sm: 10px 10px 0px 0px var(--color-primary-container);
+
+  /* Glassmorphism — backdrop blur with warm surface tint.
+     Applied via backdrop-filter + background-color, not box-shadow. */
+  --glass-bg:           rgba(255, 248, 244, 0.70); /* surface at 70% */
+  --glass-bg-dark:      rgba(57, 47, 35, 0.75);    /* secondary at 75% */
+  --glass-blur:         20px;
+  --glass-blur-heavy:   32px;
+  --glass-border:       1px solid rgba(245, 155, 124, 0.20); /* subtle peach rim */
+
+  /* Collage image drop-shadow */
+  --shadow-collage:     drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.15));
+
+  /* Inner glow for CTA section backgrounds */
+  --shadow-inner-warm:  inset 0 0 80px rgba(146, 74, 49, 0.12);
+}
+
+
+/* ============================================================
+   6. ANIMATION & TRANSITION TOKENS
+   ============================================================ */
+
+:root {
+
+  /* Durations */
+  --duration-instant:  80ms;
+  --duration-fast:     150ms;
+  --duration-normal:   250ms;
+  --duration-smooth:   400ms;
+  --duration-slow:     600ms;
+
+  /* Easing functions */
+  --ease-standard:     cubic-bezier(0.4, 0.0, 0.2, 1); /* Material standard */
+  --ease-decelerate:   cubic-bezier(0.0, 0.0, 0.2, 1); /* Element entering screen */
+  --ease-accelerate:   cubic-bezier(0.4, 0.0, 1.0, 1); /* Element leaving screen */
+  --ease-bounce:       cubic-bezier(0.34, 1.56, 0.64, 1); /* Playful overshoot */
+  --ease-spring:       cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring pop */
+
+  /* Named transition tokens */
+  --transition-smooth:      var(--duration-smooth) var(--ease-standard);   /* 0.4s ease — general UI */
+  --transition-bounce:      var(--duration-normal) var(--ease-bounce);     /* 0.3s bounce — buttons, icons */
+  --transition-fast:        var(--duration-fast)   var(--ease-standard);   /* 0.15s — micro states (hover) */
+  --transition-slow:        var(--duration-slow)   var(--ease-decelerate); /* 0.6s — page entrances */
+  --transition-collage:     var(--duration-smooth) var(--ease-spring);     /* Collage hover spring */
+
+  /* Transform magnitudes */
+  --scale-hover:        1.05;
+  --scale-hover-large:  1.10;
+  --scale-active:       0.97;
+  --rotate-tilt-sm:     2deg;
+  --rotate-tilt-md:     4deg;
+  --rotate-tilt-lg:     8deg;
+  --rotate-tilt-xl:     12deg;
+  --translate-lift:    -4px;   /* Card hover lift */
+  --translate-lift-lg: -8px;   /* Featured card hover lift */
+}
+
+
+/* ============================================================
+   7. GRADIENT TOKENS
+   ============================================================ */
+
+:root {
+
+  /* Primary CTA gradient — peach "glowing sculptural quality" per DESIGN.md */
+  --gradient-primary:
+    linear-gradient(
+      135deg,
+      var(--color-primary)           0%,    /* #924a31 — burnt sienna */
+      var(--color-primary-mid)       50%,   /* #f07856 — midpoint */
+      var(--color-primary-container) 100%   /* #f59b7c — vibrant peach */
+    );
+
+  /* Reversed gradient for hover state */
+  --gradient-primary-hover:
+    linear-gradient(
+      135deg,
+      var(--color-primary-container) 0%,
+      var(--color-primary-mid)       50%,
+      var(--color-primary)           100%
+    );
+
+  /* Groovy wave background (three-layer SVG inline, from prototype) */
+  --gradient-waves:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cpath fill='%23F59B7C' d='M0 160c150-100 300-100 450 0s300 100 450 0 300-100 450 0 300-100 450 0v640H0z'/%3E%3Cpath fill='%23f7ac92' d='M0 320c150-100 300-100 450 0s300 100 450 0 300-100 450 0 300 100 450 0v480H0z'/%3E%3Cpath fill='%23f9bdab' d='M0 480c150-100 300-100 450 0s300 100 450 0 300-100 450 0 300 100 450 0v320H0z'/%3E%3C/svg%3E");
+
+  /* Wave mask path for dividers */
+  --mask-wave:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23000' d='M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,213.3C672,224,768,192,864,160C960,128,1056,96,1152,96C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+
+  /* Surface fade gradients — for content bleed effects */
+  --gradient-surface-fade-b:
+    linear-gradient(to bottom, transparent 0%, var(--color-surface) 100%);
+
+  --gradient-surface-fade-t:
+    linear-gradient(to top, transparent 0%, var(--color-surface) 100%);
+}
+
+
+/* ============================================================
+   8. LAYOUT TOKENS
+   ============================================================ */
+
+:root {
+
+  /* Container max-widths */
+  --container-sm:    640px;
+  --container-md:    768px;
+  --container-lg:    1024px;
+  --container-xl:    1280px;
+  --container-2xl:   1536px;
+
+  /* Z-index scale */
+  --z-base:          0;
+  --z-raised:        10;
+  --z-overlay:       20;
+  --z-sticky:        30;
+  --z-collage-hover: 50;
+  --z-modal:         80;
+  --z-nav:           100;
+  --z-toast:         200;
+
+  /* Breakpoints (reference only — use in @media queries) */
+  --bp-sm:    640px;
+  --bp-md:    768px;
+  --bp-lg:    1024px;
+  --bp-xl:    1280px;
+  --bp-2xl:   1536px;
+
+  /* Safe area bottom (for floating nav on iOS) */
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+
+/* ============================================================
+   9. GLOBAL RESETS & BASE STYLES
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--type-body-md-line-h);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Reserve space for fixed floating nav */
+  padding-bottom: calc(var(--spacing-24) + var(--safe-area-bottom));
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Focus — accessible, on-brand */
+:focus-visible {
+  outline: 2px solid var(--color-primary-container);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
